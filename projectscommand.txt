@@ -1,0 +1,123 @@
+For VS Code
+git clone <url of project>
+virtualenv -p python3.7 env
+cd django-todo/
+python manage.py makemigrations
+pip install django
+python manage.py  createuser
+python manage.py runserver
+
+
+For AWS
+ cd Desktop
+cd keys
+ssh -i "testing-key.pem" ubuntu@ec2-43-205-233-238.ap-south-1.compute.amazonaws.com
+mkdir projects
+cd projects
+git clone https://github.com/shreys7/django-todo.git
+
+cd django-todo
+sudo apt install python3-pip
+sudo apt-get update
+pip3 install django
+python3 manage.py migrate
+python3 manage.py runserver
+ls
+vi todoApp/settings.py
+python3 manage.py runserver
+python3 manage.py runserver 0.0.0.0:3000
+vi todoApp/settings.py
+python3 manage.py runserver 0.0.0.0:3000
+nohup python3 manage.py runserver 0.0.0.0:3000 &
+
+For Docker
+docker
+sudo apt install docker.io
+vi Dockerfile
+press i
+FROM python:3
+RUN pip install django==3.2
+
+
+COPY . .
+
+
+RUN python manage.py migrate
+
+CMD ["python", "manage.py","runserver","0.0.0.0:3000"]
+
+ docker build . -t todo-app
+sudo docker build . -t todo-app
+sudo docker ps
+sudo docker run -p 3000:3000 ade49903acfc 
+sudo docker run -d -p 3000:3000 ade49903acfc
+sudo docker ps
+
+For Jenkins
+sudo apt update
+sudo apt install openjdk-11-jre
+java -version
+sudo apt install ca-certificates
+
+curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt-get update
+
+sudo apt-get install jenkins
+
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+cat /var/lib/jenkins/secrets/initialAdminPassword
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+automation using docker
+
+docker
+ sudo systemctl stop jenkins
+ sudo systemctl status jenkins
+clear
+ docker pull jenkins
+sudo docker pull jenkins
+sudo docker pull jenkins/jenkins
+sudo docker run -d -p 80:8080 docker.io/jenkins/jenkins:latest
+sudo docker ps
+sudo docker kill <docker image id>
+sudo docker rm <docker image id>
+sudo docker run -d -p 8080:8080 docker.io/jenkins/jenkins:latest
+docker run --detach --publish 8080:8080 --volume jenkins_home://var/jenkins_home --name jenkins jenkins/jenkins:lts
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+docker exec jenkins cat //var//jenkins_home//secrets//initialAdminPassword
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
